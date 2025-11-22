@@ -23,11 +23,22 @@
             background-image: url('https://live.staticflickr.com/65535/54939859979_77bafda3d7_b.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* 背景を固定してパララックス効果 */
+            background-attachment: fixed; /* デスクトップでは背景を固定してパララックス効果 */
             position: relative;
             z-index: 10;
             border-bottom: 8px solid #007BFF; /* アクセントカラーのボーダーを追加 */
         }
+
+        /* --- レスポンシブ調整: スマホ向け (767px以下) --- */
+        @media (max-width: 767px) {
+            #hero {
+                /* モバイルではfixedを解除し、スクロールに追従させる */
+                background-attachment: scroll;
+                /* 画像の主題（コクピット）が上部にあるため、上寄せに調整 */
+                background-position: top center;
+            }
+        }
+        /* ------------------------------------- */
 
         /* 画像の上にオーバーレイをかけて文字を見やすくする */
         #hero::before {
