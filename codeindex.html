@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求ム、ドライバー。| Hiring Pitch</title>
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font (代替として使用) + Noto Sans JP (CSSで指定) --><link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;700&family=Noto+Sans+JP:wght=400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Noto Sans JP を基本フォントとして指定 */
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            color: #000000;
+            overflow-x: hidden;
+            /* 背景グラデーションを適用: 白から濃いグレー/黒へ */
+            background: linear-gradient(180deg, #FFFFFF 0%, #F3F4F6 50%, #111827 100%);
+            background-attachment: fixed; /* スクロールしてもグラデーションの位置を固定 */
+        }
+        
+        /* ヒーローセクションを新しい画像で背景化 */
+        #hero {
+            background-image: url('https://live.staticflickr.com/65535/54939859979_77bafda3d7_b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* 背景を固定してパララックス効果 */
+            position: relative;
+            z-index: 10;
+            border-bottom: 8px solid #007BFF; /* アクセントカラーのボーダーを追加 */
+        }
+
+        /* 画像の上にオーバーレイをかけて文字を見やすくする */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* 黒の半透明オーバーレイで文字の視認性を確保 */
+            z-index: 1;
+        }
+
+        /* ヒーローセクションのテキストコンテナの背景色を透明に */
+        #hero > div {
+            background-color: transparent;
+            position: relative;
+            z-index: 2; /* オーバーレイより前面に */
+        }
+
+        /* カウントダウンセクションはグラデーションの中間色部分に配置されるため、背景を透明にしてグラデーションを見せる */
+        #countdown {
+            background-color: transparent;
+        }
+
+        /* ティザーメッセージセクションは白背景を維持し、クリーンさを出す */
+        #teaser {
+             background-color: #FFFFFF;
+        }
+
+        /* アクセントカラー定義 */
+        .text-accent { color: #007BFF; }
+        .bg-accent { background-color: #007BFF; }
+        /* 新しい黄色カラー定義 */
+        .text-yellow-accent { color: #FFD700; } /* Gold */
+        
+        /* アニメーション用クラス */
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CTAボタンのホバーエフェクト（ボタンは削除されましたがスタイルは残します） */
+        .cta-button {
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .cta-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 123, 255, 0.3), 0 4px 6px -2px rgba(0, 123, 255, 0.1);
+        }
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+        
+        /* Section 2: ティザーメッセージ */
+        .teaser-text {
+            line-height: 1.2;
+        }
+        .teaser-text span {
+            display: inline-block;
+            transition: opacity 1s ease-out;
+        }
+
+        /* 画像セクションのテキストに影を適用 - ヒーローセクションのキャッチコピーに使用 */
+        .text-shadow-lg {
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* フッターを暗い背景色に設定し、グラデーションの終点（黒）と自然に繋げる */
+        footer {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ヒーローセクション -->
+    <header id="hero" class="min-h-screen flex flex-col items-center justify-center">
+        
+        <!-- テキストエリア -->
+        <div class="flex items-center justify-center p-8 md:p-16 lg:p-24 w-full">
+            <div class="max-w-xl w-full text-center"> 
+                <!-- メインキャッチコピー (D: 0.6s) -->
+                <!-- text-whiteとtext-shadow-lgを追加 -->
+                <h1 class="fade-in-item text-7xl md:text-8xl lg:text-9xl font-bold leading-none mb-6 text-white text-shadow-lg" style="transition-delay: 0.6s;">
+                    求ム、<br>ドライバー<span class="text-yellow-accent">。</span>
+                </h1>
+
+                <!-- CTAボタンエリアは削除されました -->
+
+            </div>
+        </div>
+        
+    </header>
+
+    <!-- 2. ティザーメッセージ (抽象的表現) -->
+    <section id="teaser" class="py-24 md:py-32 lg:py-40 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <h2 class="teaser-text text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-800">
+                <span class="opacity-0 scroll-fade-in-item" style="transition-delay: 0.1s;">未踏のルートを</span>
+                <span class="opacity-0 scroll-fade-in-item text-accent" style="transition-delay: 0.3s;">切り拓く、</span>
+                <span class="opacity-0 scroll-fade-in-item" style="transition-delay: 0.5s;">その使命。</span>
+            </h2>
+            <!-- 本文 -->
+            <p class="text-xl md:text-2xl text-gray-600 mt-8 max-w-4xl mx-auto opacity-0 scroll-fade-in-item" style="transition-delay: 0.7s;">
+                未経験ドライバーでも大歓迎。
+            </p>
+        </div>
+    </section>
+    
+    <!-- 3. カウントダウン/アクションセクション -->
+    <section id="countdown" class="py-24 md:py-32 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <!-- text-gray-200 から text-accent (青) に変更 -->
+            <p class="text-xl md:text-2xl font-semibold mb-6 text-accent">PITCH EVENT START IN</p>
+            
+            <!-- カウントダウン表示エリア -->
+            <div id="timer" class="flex justify-center space-x-2 md:space-x-4 mb-12">
+                <!-- Days -->
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg w-1/4">
+                    <div id="days" class="text-5xl md:text-7xl font-mono font-bold text-accent">00</div>
+                    <div class="text-sm md:text-lg text-gray-500 mt-2">DAYS</div>
+                </div>
+                <!-- Hours -->
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg w-1/4">
+                    <div id="hours" class="text-5xl md:text-7xl font-mono font-bold text-accent">00</div>
+                    <div class="text-sm md:text-lg text-gray-500 mt-2">HRS</div>
+                </div>
+                <!-- Minutes -->
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg w-1/4">
+                    <div id="minutes" class="text-5xl md:text-7xl font-mono font-bold text-accent">00</div>
+                    <div class="text-sm md:text-lg text-gray-500 mt-2">MIN</div>
+                </div>
+                <!-- Seconds -->
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg w-1/4">
+                    <div id="seconds" class="text-5xl md:text-7xl font-mono font-bold text-accent">00</div>
+                    <div class="text-sm md:text-lg text-gray-500 mt-2">SEC</div>
+                </div>
+            </div>
+
+            <p class="text-lg md:text-xl text-white mb-8"> 
+                あなたの参加が、次のステージへの推進力となる。
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. イメージセクションは削除されました -->
+
+    <!-- 5. フッター -->
+    <footer class="py-8 text-white">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <!-- 著作権表記: IZUMIDA Logistics Corporation. に変更 -->
+            <p class="text-sm">
+                &copy; 2025 IZUMIDA Logistics Corporation. All Rights Reserved. | <span class="text-accent">Growth Strategy Dept.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. 初期ロード時のディレイ付きフェードイン (Hero Section) ---
+            const heroItems = document.querySelectorAll('#hero .fade-in-item');
+            heroItems.forEach(item => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, parseFloat(item.style.transitionDelay) * 1000);
+            });
+
+            // --- 2. スクロールイン時のフェードイン (Teaser Section) ---
+            const scrollFadeInItems = document.querySelectorAll('.scroll-fade-in-item');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        const delay = parseFloat(entry.target.style.transitionDelay) * 1000 || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                            entry.target.style.opacity = '1';
+                        }, delay);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            scrollFadeInItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // --- 3. カウントダウンタイマー ---
+            // 2025年11月27日 9:00:00 (JST)
+            const targetDate = new Date('2025-11-27T09:00:00+09:00').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                const timerEl = document.getElementById('timer');
+
+                if (!daysEl || distance < 0) {
+                    clearInterval(interval);
+                    if(timerEl) timerEl.innerHTML = `<p class="text-4xl md:text-6xl font-bold text-accent">PITCH NOW LIVE!</p>`;
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const formatTime = (time) => String(time).padStart(2, '0');
+
+                daysEl.textContent = formatTime(days);
+                hoursEl.textContent = formatTime(hours);
+                minutesEl.textContent = formatTime(minutes);
+                secondsEl.textContent = formatTime(seconds);
+            }
+
+            updateCountdown();
+            const interval = setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
